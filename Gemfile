@@ -49,7 +49,9 @@ group :development, :test do
 end
 
 gem 'foundation-rails'
-
+gem "slim-rails"
+gem "slim"
 gem 'devise'
 
 gem 'simple_form'
+gem 'country_select'
