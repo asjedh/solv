@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  root 'welcome#home'
+
+  #want to allow the user to see all the ideas user has created
+  resources :users, only: [] do
+    resources :ideas, only: [:index]
+  end
+
+  resources :ideas, only: [:show, :edit, :update, :destroy, :create]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'ideas#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
