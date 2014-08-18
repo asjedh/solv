@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-
+    @ideas = Idea.where(user: current_user)
   end
 
   def new
