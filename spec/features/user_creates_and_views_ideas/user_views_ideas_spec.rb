@@ -14,7 +14,19 @@ feature "user views ideas" do
     expect(page).to have_content(idea.body)
     expect(page).to have_content(idea.created_at)
     expect(page).to have_content(idea.updated_at)
-
   end
 
+  it "shows user's ideas if user clicks on Your Ideas " do
+    user = FactoryGirl.create(:user)
+    ideas = FactoryGirl.create_list(:idea, 10, user: user)
+    sign_in_as(user)
+
+    visit root_path
+    click_on "Your Ideas"
+
+    ideas.each do |idea|
+      expect(page).to have_content(idea.title)
+      expect(page).to have_content(idea.abstract)
+    end
+  end
 end

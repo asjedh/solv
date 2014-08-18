@@ -13,16 +13,14 @@ html[lang="en"]
       ul.title-area
         li.name
           h1
-            = link_to 'Solv', "#"
+            = link_to 'Project Solv', root_path
       section.top-bar-section
         ul.right
           - if user_signed_in?
             li
-              a
-                = link_to "New Idea", new_idea_path
+              = link_to "New Idea", new_idea_path
             li
-              a
-                = link_to "Your Ideas", user_ideas_path(current_user)
+              = link_to "Your Ideas", user_ideas_path(current_user)
             li
               = link_to 'Edit profile', edit_user_registration_path
             li
