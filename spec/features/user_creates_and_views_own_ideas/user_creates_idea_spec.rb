@@ -4,7 +4,7 @@ feature "user can add idea" do
 
   it "creates new idea if user inputs idea correctly" do
     user = FactoryGirl.create(:user)
-    idea = FactoryGirl.build(:idea)
+    idea = FactoryGirl.build(:idea, user: user)
     sign_in_as(user)
 
     visit new_idea_path
@@ -15,8 +15,9 @@ feature "user can add idea" do
 
     click_on "Create Idea"
 
-    expect(page).to have_content("Your Ideas")
-    expect(page).to have_content("Idea added successfully")
+    expect(page).to have_content("Your idea has been added!")
+    expect(page).to have_content(idea.title)
+
   end
 
    it "does not create new idea if user inputs idea incorrectly" do
@@ -34,8 +35,7 @@ feature "user can add idea" do
    it "does not allow user to visit new idea page if not logged in" do
     visit new_idea_path
 
-    expect(page).to have_content("Sign in")
-    expect(page).to have_content("You need to be logged in to do that.")
+    expect(page).to have_content("You need to sign in or sign up before continuing.")
   end
 
 end

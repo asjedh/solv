@@ -1,0 +1,9 @@
+h2 Add an Idea
+
+= simple_form_for @idea do |f|
+  .form-inputs
+    = f.input :title, required: true, autofocus: true, placeholder: "Name your idea"
+    = f.input :abstract, required: true, placeholder: "Describe your idea briefly"
+    = f.input :body, required: true, placeholder: "Describe your idea in more detail"
+  .form-actions
+    = f.button :submit
