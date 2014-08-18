@@ -19,10 +19,10 @@ html[lang="en"]
           - if user_signed_in?
             li
               a
-                | New Idea
+                = link_to "New Idea", new_idea_path
             li
               a
-                | Your Ideas
+                = link_to "Your Ideas", user_ideas_path(current_user)
             li
               = link_to 'Edit profile', edit_user_registration_path
             li
