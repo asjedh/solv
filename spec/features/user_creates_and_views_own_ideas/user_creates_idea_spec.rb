@@ -7,7 +7,8 @@ feature "user can add idea" do
     idea = FactoryGirl.build(:idea, user: user)
     sign_in_as(user)
 
-    visit new_idea_path
+    visit root_path
+    click_on "New Idea"
 
     fill_in "Title", with: idea.title
     fill_in "Abstract", with: idea.abstract
