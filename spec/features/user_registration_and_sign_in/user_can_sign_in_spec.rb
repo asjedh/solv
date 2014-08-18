@@ -17,8 +17,6 @@ feature "user can sign in" do
   end
 
   it "does not sign user in if no info is inputted" do
-    user = FactoryGirl.build(:user)
-
     visit new_user_session_path
     click_on "Sign in"
 
