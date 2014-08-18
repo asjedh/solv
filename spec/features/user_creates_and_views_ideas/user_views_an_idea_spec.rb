@@ -13,6 +13,8 @@ feature "user views ideas" do
     expect(page).to have_content(idea.abstract)
     expect(page).to have_content(idea.body)
     expect(page).to have_content(idea.created_at)
+    expect(page).to have_content(idea.updated_at)
+
   end
 
 end

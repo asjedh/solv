@@ -1,1 +1,10 @@
-= @idea.title
+.idea
+  h2
+    = @idea.title
+  p
+    = @idea.abstract
+  p
+    = @idea.body
+  p
+    | Created at: #{@idea.created_at} | Updated at: # {@idea.updated_at}
+
