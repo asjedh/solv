@@ -1,5 +1,6 @@
 class Category < ActiveRecord::Base
-  has_and_belongs_to_many :ideas
+  has_many :ideas, through: :categories_ideas
+  has_many :categories_ideas, class_name: "CategoriesIdeas"
 
   validates :name, presence: true
 end

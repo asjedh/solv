@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :category do
-    name "MyString"
-    ideas_count 1
+    sequence(:name) { |n| "MyCategory#{n}" }
   end
 end

@@ -3,9 +3,7 @@ require 'rails_helper'
 feature "user views ideas" do
 
   it "shows idea page if user goes to idea/:id " do
-    user = FactoryGirl.create(:user)
     idea = FactoryGirl.create(:idea)
-    sign_in_as(user)
 
     visit idea_path(idea)
 
