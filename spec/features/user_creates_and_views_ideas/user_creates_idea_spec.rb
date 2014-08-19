@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 feature "user can add idea" do
+  before(:each) do
+    load "#{Rails.root}/db/seeds.rb"
+  end
 
   it "creates new idea if user inputs idea correctly" do
     user = FactoryGirl.create(:user)
