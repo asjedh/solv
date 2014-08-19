@@ -1,6 +1,6 @@
 class Idea < ActiveRecord::Base
   belongs_to :user
-  has_and_belongs_to_many :categories, counter_cache: :ideas_count
+  has_many :categories, through: :categories_ideas
 
   accepts_nested_attributes_for :categories
 

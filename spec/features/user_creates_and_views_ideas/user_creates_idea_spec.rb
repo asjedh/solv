@@ -20,6 +20,7 @@ feature "user can add idea" do
     click_on "Create Idea"
 
     idea = Idea.first
+    binding.pry
     expect(page).to have_content("Your idea has been added!")
     expect(page).to have_content(idea.title)
     expect(page).to have_content(idea.abstract)
