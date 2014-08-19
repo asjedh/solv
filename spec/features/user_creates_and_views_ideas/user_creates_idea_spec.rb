@@ -1,6 +1,9 @@
-require "spec_helper"
+require 'rails_helper'
 
 feature "user can add idea" do
+  before(:each) do
+    load "#{Rails.root}/db/seeds.rb"
+  end
 
   it "creates new idea if user inputs idea correctly" do
     user = FactoryGirl.create(:user)
@@ -13,12 +16,17 @@ feature "user can add idea" do
     fill_in "Title", with: idea.title
     fill_in "Abstract", with: idea.abstract
     fill_in "Body", with: idea.body
-
+    page.check("Technology")
     click_on "Create Idea"
 
+    idea = Idea.first
     expect(page).to have_content("Your idea has been added!")
     expect(page).to have_content(idea.title)
-
+    expect(page).to have_content(idea.abstract)
+    expect(page).to have_content(idea.body)
+    idea.categories.each do |category|
+      expect(page).to have_content(category.name)
+    end
   end
 
    it "does not create new idea if user inputs idea incorrectly" do

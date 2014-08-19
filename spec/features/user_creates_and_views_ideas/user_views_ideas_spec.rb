@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'rails_helper'
 
 feature "user views ideas" do
 
@@ -12,8 +12,8 @@ feature "user views ideas" do
     expect(page).to have_content(idea.title)
     expect(page).to have_content(idea.abstract)
     expect(page).to have_content(idea.body)
-    expect(page).to have_content(idea.created_at)
-    expect(page).to have_content(idea.updated_at)
+    expect(page).to have_content(idea.created_at.to_s(:long))
+    expect(page).to have_content(idea.updated_at.to_s(:long))
   end
 
   it "shows user's ideas if user clicks on Your Ideas " do

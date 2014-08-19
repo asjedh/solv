@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-describe Idea do
+RSpec.describe IdeaCategory, :type => :model do
   # pending "add some examples to (or delete) #{__FILE__}"
 end

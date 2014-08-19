@@ -8,6 +8,6 @@ h2 These are your ideas.
       | to add one.
   - else
     - @ideas.each do |idea|
-      = idea.title
+      => link_to idea.title, idea_path(idea)
       = idea.abstract
 

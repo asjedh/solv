@@ -6,5 +6,11 @@
   p
     = @idea.body
   p
-    | Created at: #{@idea.created_at} | Updated at: # {@idea.updated_at}
+    | Created at: #{@idea.created_at.to_s(:long)} | Updated at: #{@idea.updated_at.to_s(:long)}
+  .idea-categories
+    ul
+    - @idea.categories.each do |category|
+      li = category.name
+
+
 
