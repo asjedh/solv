@@ -13,12 +13,11 @@ feature "user can add idea" do
     fill_in "Title", with: idea.title
     fill_in "Abstract", with: idea.abstract
     fill_in "Body", with: idea.body
-
+    page.check("Technology")
     click_on "Create Idea"
 
     expect(page).to have_content("Your idea has been added!")
     expect(page).to have_content(idea.title)
-
   end
 
    it "does not create new idea if user inputs idea incorrectly" do
