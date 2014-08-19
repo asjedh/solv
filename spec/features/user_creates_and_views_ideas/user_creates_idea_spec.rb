@@ -19,8 +19,14 @@ feature "user can add idea" do
     page.check("Technology")
     click_on "Create Idea"
 
+    idea = Idea.first
     expect(page).to have_content("Your idea has been added!")
     expect(page).to have_content(idea.title)
+    expect(page).to have_content(idea.abstract)
+    expect(page).to have_content(idea.body)
+    idea.categories.each do |category|
+      expect(page).to have_content(category.name)
+    end
   end
 
    it "does not create new idea if user inputs idea incorrectly" do
