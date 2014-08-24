@@ -24,6 +24,7 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params[:id])
+    @comments = @idea.comments
     @comment = @idea.comments.new
   end
 
