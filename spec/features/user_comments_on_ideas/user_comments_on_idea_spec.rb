@@ -9,8 +9,8 @@ feature "user comments on idea" do
 
     visit idea_path(idea)
 
-    fill_in "Comment", with: "Cool idea bro"
-    click_on "Submit"
+    fill_in "Add comment", with: "Cool idea bro"
+    click_on "Comment"
 
     expect(page).to have_content(idea.title)
     expect(page).to have_content("Cool idea bro")

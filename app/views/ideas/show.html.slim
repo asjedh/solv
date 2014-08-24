@@ -12,8 +12,11 @@
     - @idea.categories.each do |category|
       li = category.name
 
+.comments
+  - @idea.comments.each do |comment|
+    = comment.comment
 .comment-form
   h5 Add a comment
   = simple_form_for [@idea, @comment] do |f|
-    = f.input :body, "Comment", required: true
-    = f.button :submit
+    = f.input :comment, label: "Add comment", required: true
+    = f.button :submit, label: "Comment"
