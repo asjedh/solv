@@ -5,6 +5,8 @@ class Idea < ActiveRecord::Base
 
   accepts_nested_attributes_for :categories
 
+  acts_as_commentable
+
   validates :title, presence: true
   validates :abstract, presence: true
   validates :body, presence: true
