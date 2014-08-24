@@ -17,5 +17,11 @@
  */
 
 .welcome-message {
-  background-color: red
+  background-image: url("lightbulb.jpg");
+  background-size: cover;
+  height: 768px;
+}
+
+.welcome-message h2 {
+  color: white;
 }
