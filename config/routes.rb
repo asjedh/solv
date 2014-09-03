@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :ideas, except: [:index] do
     resources :comments, except: [:index, :show, :new]
+    resources :votes, only: [:create, :destroy]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

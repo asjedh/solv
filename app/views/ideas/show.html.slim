@@ -1,4 +1,5 @@
 .small-6.small-offset-2.columns
+
   .idea
     h2
       = @idea.title
@@ -9,9 +10,12 @@
     p
       | Created at: #{@idea.created_at.to_s(:long)} | Updated at: #{@idea.updated_at.to_s(:long)}
     .idea-categories
-      ul
-      - @idea.categories.each do |category|
-        li = category.name
+      h5 Tags for this idea:
+      ul.no-bullet
+        - @idea.categories.each do |category|
+          li = category.name
+  .votes
+    = link_to "Upvote!"
   .comments
     - @comments.each do |comment|
       = comment.comment

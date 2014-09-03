@@ -1,5 +1,6 @@
 class Idea < ActiveRecord::Base
   belongs_to :user
+  has_many :votes, dependent: :destroy
   has_many :categories_ideas, dependent: :destroy
   has_many :categories, through: :categories_ideas
 
