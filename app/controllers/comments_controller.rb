@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
       flash[:notice] = "Your comment has been saved!"
       redirect_to idea_path(@idea)
     else
-      flash.now[:notice] = "There was an error."
+      @comments = @idea.comments
+      flash.now[:alert] = "Your comment could not be added."
       render 'ideas/show'
     end
   end
