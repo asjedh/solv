@@ -9,7 +9,7 @@ feature "user can vote" do
 
     visit idea_path(idea)
 
-    click_on "Upvote!"
+    click_on "Like"
 
     expect(page).to have_content(idea.title)
     within(".votes") do
@@ -24,8 +24,8 @@ feature "user can vote" do
 
     visit idea_path(idea)
 
-    click_on "Upvote!"
-    click_on "Upvoted"
+    click_on "Like"
+    click_on "Unlike"
 
     expect(page).to have_content(idea.title)
     within(".votes") do
@@ -40,10 +40,11 @@ feature "user can vote" do
     users.each do |user|
       sign_in_as(user)
       visit idea_path(idea)
-      click_on "Upvote!"
+      click_on "Like"
       sign_out
     end
 
+    visit idea_path(idea)
     expect(page).to have_content(idea.title)
     within(".votes") do
       expect(page).to have_content("3")

@@ -16,9 +16,11 @@
           li = category.name
   .votes
     - if user_voted_on_idea?(current_user, @idea)
-      = link_to "Upvoted", idea_votes_destroy(@idea), method: :delete
+      = link_to "Unlike", idea_votes_destroy_path(@idea), method: :delete
     - else
-      = link_to "Upvote", idea_votes_create_path(@idea), method: :post
+      = link_to "Like", idea_votes_create_path(@idea), method: :post
+    p
+      = @idea.votes_count
   .comments
     - @comments.each do |comment|
       = comment.comment

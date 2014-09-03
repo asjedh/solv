@@ -29,14 +29,14 @@ class IdeasController < ApplicationController
   end
 
   def create_vote
-    idea = params[:idea_id]
+    idea = Idea.find(params[:idea_id])
     Vote.create(user: current_user, idea: idea)
     redirect_to idea_path(idea)
   end
 
   def destroy_vote
-    idea = params[:idea_id]
-    Vote.destroy(user: current_user, idea: idea)
+    idea = Idea.find(params[:idea_id])
+    Vote.where(user: current_user, idea: idea).first.destroy
     redirect_to idea_path(idea)
   end
 
