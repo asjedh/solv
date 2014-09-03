@@ -28,4 +28,14 @@ feature "user comments on idea" do
     expect(page).to have_content(idea.title)
     expect(page).to have_content("can't be blank")
   end
+
+  it "redirects user if not signed in" do
+    idea = FactoryGirl.create(:idea)
+    visit idea_path(idea)
+
+    fill_in "Add comment", with: "Cool idea bro"
+    click_on "Comment"
+
+    expect(page).to have_content("Must be signed in to comment")
+  end
 end

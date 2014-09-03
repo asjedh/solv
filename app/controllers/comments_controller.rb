@@ -1,5 +1,12 @@
 class CommentsController < ApplicationController
   def create
+    if !current_user
+      @idea = Idea.find(params[:idea_id])
+      @comments = @idea.comments
+      @comment = @idea.comments.build
+      flash.now[:alert] = "Must be signed in to comment."
+      return render 'ideas/show'
+    end
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     @idea = Idea.find(params[:idea_id])
