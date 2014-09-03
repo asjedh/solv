@@ -15,7 +15,10 @@
         - @idea.categories.each do |category|
           li = category.name
   .votes
-    = link_to "Upvote!"
+    - if user_voted_on_idea?(current_user, @idea)
+      = link_to "Upvoted", idea_votes_destroy(@idea), method: :delete
+    - else
+      = link_to "Upvote", idea_votes_create_path(@idea), method: :post
   .comments
     - @comments.each do |comment|
       = comment.comment

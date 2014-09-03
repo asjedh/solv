@@ -10,8 +10,11 @@ Rails.application.routes.draw do
 
   resources :ideas, except: [:index] do
     resources :comments, except: [:index, :show, :new]
-    resources :votes, only: [:create, :destroy]
+    post "/votes/create", to: "ideas#create_vote"
+    delete "/votes/destroy", to: "ideas#destroy_vote"
   end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
