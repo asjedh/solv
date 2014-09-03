@@ -26,6 +26,6 @@ feature "user comments on idea" do
     click_on "Comment"
 
     expect(page).to have_content(idea.title)
-    expect(page).to have_content("You must have text in the comment!")
+    expect(page).to have_content("can't be blank")
   end
 end
