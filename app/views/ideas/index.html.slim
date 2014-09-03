@@ -1,13 +1,16 @@
-h2 These are your ideas.
+.small-12.small-centered.text-center.columns
+  h2 These are your ideas.
 
-.user_ideas
-  - if @ideas.empty?
-    p
-      ' You haven't added any ideas yet!
-      => link_to "Click here", new_idea_path
-      | to add one.
-  - else
-    - @ideas.each do |idea|
-      => link_to idea.title, idea_path(idea)
-      = idea.abstract
+  .user_ideas
+    - if @ideas.empty?
+      p.text-center
+        ' You haven't added any ideas yet!
+        => link_to "Click here", new_idea_path
+        | to add one.
+    - else
+      ul.small-block-grid-4
+        - @ideas.each do |idea|
+          li
+            => link_to idea.title, idea_path(idea)
+            = idea.abstract
 

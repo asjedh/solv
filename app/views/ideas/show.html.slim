@@ -1,22 +1,22 @@
-.idea
-  h2
-    = @idea.title
-  p
-    = @idea.abstract
-  p
-    = @idea.body
-  p
-    | Created at: #{@idea.created_at.to_s(:long)} | Updated at: #{@idea.updated_at.to_s(:long)}
-  .idea-categories
-    ul
-    - @idea.categories.each do |category|
-      li = category.name
-
-.comments
-  - @comments.each do |comment|
-    = comment.comment
-.comment-form
-  h5 Add a comment
-  = simple_form_for [@idea, @comment] do |f|
-    = f.input :comment, label: "Add comment", required: true
-    = f.button :submit, label: "Comment"
+.small-6.small-offset-2.columns
+  .idea
+    h2
+      = @idea.title
+    p
+      = @idea.abstract
+    p
+      = @idea.body
+    p
+      | Created at: #{@idea.created_at.to_s(:long)} | Updated at: #{@idea.updated_at.to_s(:long)}
+    .idea-categories
+      ul
+      - @idea.categories.each do |category|
+        li = category.name
+  .comments
+    - @comments.each do |comment|
+      = comment.comment
+  .comment-form
+    h5 Add a comment
+    = simple_form_for [@idea, @comment] do |f|
+      = f.input :comment, label: "Add comment", required: true
+      = f.button :submit, label: "Comment"
