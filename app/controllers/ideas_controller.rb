@@ -28,6 +28,18 @@ class IdeasController < ApplicationController
     @comment = @idea.comments.new
   end
 
+  def create_vote
+    idea = Idea.find(params[:idea_id])
+    Vote.create(user: current_user, idea: idea)
+    redirect_to idea_path(idea)
+  end
+
+  def destroy_vote
+    idea = Idea.find(params[:idea_id])
+    Vote.where(user: current_user, idea: idea).first.destroy
+    redirect_to idea_path(idea)
+  end
+
   private
 
   def idea_params
