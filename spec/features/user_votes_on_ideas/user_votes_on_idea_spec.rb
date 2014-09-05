@@ -49,6 +49,13 @@ feature "user can vote" do
     within(".votes") do
       expect(page).to have_content("3")
     end
+  end
 
+  it "does not show like button if user is not signed in" do
+    idea = FactoryGirl.create(:idea)
+    visit idea_path(idea)
+
+    expect(page).to have_content(idea.title)
+    expect(page).to_not have_content("Like")
   end
 end
