@@ -9,7 +9,7 @@ feature "user can search for idea" do
     ideas_not_in_search = FactoryGirl.create_list(:idea, 10)
 
     visit root_path
-    fill_in "Search", with: "Foo"
+    fill_in "search", with: "Foo"
     click_on "Search"
 
     ideas_in_search.each do |idea|

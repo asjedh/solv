@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show, :search]
 
   def index
     @ideas = Idea.where(user: current_user)
@@ -38,6 +38,10 @@ class IdeasController < ApplicationController
     idea = Idea.find(params[:idea_id])
     Vote.where(user: current_user, idea: idea).first.destroy
     redirect_to idea_path(idea)
+  end
+
+  def search
+    @ideas = Idea.search(params[:search]).order('created_at DESC')
   end
 
   private
