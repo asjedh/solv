@@ -1,3 +1,6 @@
-- @ideas.each do |idea|
-  = idea.title
-  = idea.abstract
+- if @ideas.empty?
+  h2 No ideas found. Please try again.
+- else
+  - @ideas.each do |idea|
+    = idea.title
+    = idea.abstract

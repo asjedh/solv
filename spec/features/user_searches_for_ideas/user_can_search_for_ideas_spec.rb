@@ -68,5 +68,14 @@ feature "user can search for idea" do
     end
   end
 
+  it "notifies the user if no ideas were found" do
+
+    visit root_path
+    fill_in "search", with: "Foo"
+    click_on "Search"
+
+    expect(page).to have_content("No ideas found. Please try again.")
+
+  end
 
 end
