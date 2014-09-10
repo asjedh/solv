@@ -11,4 +11,9 @@ class Idea < ActiveRecord::Base
   validates :title, presence: true
   validates :abstract, presence: true
   validates :body, presence: true
+
+  def self.search(search_params)
+    where("title ILIKE :search OR abstract ILIKE
+      :search OR body ILIKE :search", search: "%#{search_params}%")
+  end
 end

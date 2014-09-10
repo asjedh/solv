@@ -43,7 +43,6 @@ feature "user can add idea" do
 
    it "does not allow user to visit new idea page if not logged in" do
     visit new_idea_path
-
     expect(page).to have_content("You need to sign in or sign up before continuing.")
   end
 

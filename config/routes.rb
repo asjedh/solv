@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'welcome#home'
-
+  get "/search", to: "ideas#search"
   #want to allow the user to see all the ideas user has created
   resources :users, only: [] do
     resources :ideas, only: [:index]
