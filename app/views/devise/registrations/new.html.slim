@@ -1,6 +1,6 @@
-.small-5.small-centered.columns
+.large-4.large-centered.medium-5.medium-centered.small-7.small-centered.columns
   h2.text-center
-    | Sign up
+    | Register
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = f.error_notification
     .form-inputs
@@ -9,7 +9,7 @@
       = f.input :password, required: true
       = f.input :password_confirmation, required: true, label: "Confirm password"
     .form-actions
-      = f.button :submit, "Sign me up!", class: "button radius"
+      = f.button :submit, "Sign me up!", class: "button"
   p
-    ' Not a member?
+    ' Already a member?
     = render "devise/shared/links"

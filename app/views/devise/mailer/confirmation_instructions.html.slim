@@ -1,8 +1,9 @@
-p
-  | Welcome 
-  = @email
-  | !
-p
-  | You can confirm your account email through the link below:
-p
-  = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+.large-4.large-centered.medium-5.medium-centered.small-7.small-centered.columns
+  p
+    | Welcome
+    = @email
+    | !
+  p
+    | You can confirm your account email through the link below:
+  p
+    = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
